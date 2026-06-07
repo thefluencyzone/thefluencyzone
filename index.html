@@ -807,7 +807,7 @@ Honor your past, but don't carry it. Because life is too precious and today is t
                         description: "Dark winters with no sunlight for many weeks, and bright summers with sunlight 24 hours a day. In this video I want to take you on a journey to the darkest and brightest times of the year, and share the beauty and the challenges that comes with them.",
                         apps: (() => {
                             // Request exactly 7 apps to prevent random slicing
-                            const apps = generateApps(7);
+                            const apps = generateApps(8);
                             
                             // Assign the specified link to App 1
                             apps[0].url = "https://sweden1.netlify.app/";
@@ -836,6 +836,10 @@ Honor your past, but don't carry it. Because life is too precious and today is t
                             // Assign the specified link to App 7
                             apps[6].url = "https://fitconnectors.netlify.app/";
                             apps[6].instruction = "Complete the sentences by dragging the words into the box, then create a wh question for each sentence.";
+                            
+                            // Assign the specified link to App 8
+                            apps[7].url = "https://swedenlistening.netlify.app/";
+                            apps[7].instruction = "Listen to the audio, then arrange the items in the correct order.";
 
                             return apps;
                         })(),                        
@@ -877,13 +881,13 @@ Around 3 in the day it's already getting dark and it makes the evenings feel nev
                     },
                     { 
                         id: 3, 
-                        title: "Story 3: Family Gatherings", 
-                        duration: "7:10",
-                        youtubeId: "L88_NAtG64A",
-                        thumbnail: "https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?auto=format&fit=crop&w=400&q=80",
-                        description: "Explore relationship terms, shared histories, and domestic expressions around a large family table.",
+                        title: "Living with the Dark Winters in Sweden: Part 2", 
+                        duration: "14:24",
+                        youtubeId: "3zTR4ayDG38",
+                        thumbnail: "https://img.youtube.com/vi/3zTR4ayDG38/hqdefault.jpg",
+                        description: "Dark winters with no sunlight for many weeks, and bright summers with sunlight 24 hours a day. In this video I want to take you on a journey to the darkest and brightest times of the year, and share the beauty and the challenges that comes with them.",
                         apps: generateApps(),
-                        homeworkPrompt: "Describe a memorable celebration or holiday event in your family. Include descriptions of family relations, traditional expressions, and dining settings.",
+                        homeworkPrompt: " family. Include descriptions of family relations, traditional expressions, and dining settings.",
                         transcript: `FAMILY GATHERINGS
 
 [Warm Family Dinner Ambient Sound]
