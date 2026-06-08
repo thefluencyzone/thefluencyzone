@@ -96,7 +96,7 @@
                 </div>
                 <!-- Desktop Nav -->
                 <div class="hidden md:block">
-                    <div class="ml-10 flex items-center space-x-6">
+                    <div class="ml-10 flex items-center space-x-4">
                         <a href="#" class="text-gray-300 hover:text-fluency-neon transition px-3 py-2 rounded-md text-sm font-medium">Home</a>
                         <div class="flex items-center gap-3">
                             <!-- Theme Toggle Button (Desktop) -->
@@ -104,19 +104,25 @@
                                 <!-- Icon loaded dynamically -->
                             </button>
                             
+                            <!-- Stories Button -->
                             <a href="#stories-section" class="bg-fluency-copper hover:bg-fluency-copperLight text-white px-6 py-2.5 rounded-full text-sm font-semibold tracking-wide transition shadow-[0_0_15px_rgba(212,107,33,0.4)]">Stories</a>
+                            
+                            <!-- Games Button (with identical visual appeal) -->
+                            <button onclick="openGamesModal()" class="bg-fluency-copper hover:bg-fluency-copperLight text-white px-6 py-2.5 rounded-full text-sm font-semibold tracking-wide transition shadow-[0_0_15px_rgba(212,107,33,0.4)]">Games</button>
+                            
+                            <!-- Need Help Button -->
                             <button onclick="openHelpModal()" class="border border-fluency-neon/40 hover:border-fluency-neon text-fluency-neon hover:bg-fluency-neon hover:text-fluency-bg px-6 py-2.5 rounded-full text-sm font-semibold tracking-wide transition shadow-[0_0_15px_rgba(30,187,237,0.15)]">Need Help?</button>
                         </div>
-                        <a href="#" class="text-gray-300 hover:text-fluency-neon transition px-3 py-2 rounded-md text-sm font-medium">About</a>
                     </div>
                 </div>
                 <!-- Mobile Nav with toggle -->
-                <div class="md:hidden flex items-center gap-2">
+                <div class="md:hidden flex items-center gap-1.5">
                     <button onclick="toggleTheme()" class="theme-toggle-icon p-2 rounded-full border border-gray-700 text-gray-300 hover:text-white hover:bg-gray-800/60 transition" aria-label="Toggle Theme">
                         <!-- Icon loaded dynamically -->
                     </button>
-                    <a href="#stories-section" class="bg-fluency-copper text-white px-4 py-2 rounded-full text-xs font-semibold tracking-wide">Stories</a>
-                    <button onclick="openHelpModal()" class="border border-fluency-neon text-fluency-neon px-4 py-2 rounded-full text-xs font-semibold tracking-wide">Help</button>
+                    <a href="#stories-section" class="bg-fluency-copper text-white px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide">Stories</a>
+                    <button onclick="openGamesModal()" class="bg-fluency-copper text-white px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide">Games</button>
+                    <button onclick="openHelpModal()" class="border border-fluency-neon text-fluency-neon px-3 py-1.5 rounded-full text-xs font-semibold tracking-wide">Help</button>
                 </div>
             </div>
         </div>
@@ -248,7 +254,6 @@
             <div class="p-6 space-y-4">
                 <p class="text-xs font-semibold uppercase tracking-wider text-fluency-copper">Your Challenge:</p>
                 <div class="bg-[#0d1015] border border-gray-800 rounded-xl p-4">
-                    <!-- Note: added 'whitespace-pre-wrap' so that \n\n newlines are properly respected in rendering -->
                     <p id="homework-prompt-text" class="text-sm text-gray-200 leading-relaxed font-medium whitespace-pre-wrap">Writing challenge instructions loading...</p>
                 </div>
             </div>
@@ -306,49 +311,32 @@
             <!-- Grid of Clean Numbered Help Apps -->
             <div class="p-6 space-y-4 max-h-[60vh] overflow-y-auto">
                 <p class="text-xs font-semibold uppercase tracking-wider text-fluency-neon">Select a Help App below to launch:</p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <button onclick="launchHelpApp(1)" class="group flex items-center justify-between p-4 border border-gray-800 hover:border-fluency-neon/40 bg-[#0d1015]/80 hover:bg-fluency-neon/5 rounded-xl transition duration-150 text-left">
-                        <div class="flex items-center gap-3">
-                            <span class="text-xl">✨</span>
-                            <span class="font-bold text-gray-200 group-hover:text-white transition">Help App 1</span>
-                        </div>
-                        <svg class="w-4 h-4 text-gray-500 group-hover:text-fluency-neon transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </button>
-                    <button onclick="launchHelpApp(2)" class="group flex items-center justify-between p-4 border border-gray-800 hover:border-fluency-neon/40 bg-[#0d1015]/80 hover:bg-fluency-neon/5 rounded-xl transition duration-150 text-left">
-                        <div class="flex items-center gap-3">
-                            <span class="text-xl">✨</span>
-                            <span class="font-bold text-gray-200 group-hover:text-white transition">Help App 2</span>
-                        </div>
-                        <svg class="w-4 h-4 text-gray-500 group-hover:text-fluency-neon transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </button>
-                    <button onclick="launchHelpApp(3)" class="group flex items-center justify-between p-4 border border-gray-800 hover:border-fluency-neon/40 bg-[#0d1015]/80 hover:bg-fluency-neon/5 rounded-xl transition duration-150 text-left">
-                        <div class="flex items-center gap-3">
-                            <span class="text-xl">✨</span>
-                            <span class="font-bold text-gray-200 group-hover:text-white transition">Help App 3</span>
-                        </div>
-                        <svg class="w-4 h-4 text-gray-500 group-hover:text-fluency-neon transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </button>
-                    <button onclick="launchHelpApp(4)" class="group flex items-center justify-between p-4 border border-gray-800 hover:border-fluency-neon/40 bg-[#0d1015]/80 hover:bg-fluency-neon/5 rounded-xl transition duration-150 text-left">
-                        <div class="flex items-center gap-3">
-                            <span class="text-xl">✨</span>
-                            <span class="font-bold text-gray-200 group-hover:text-white transition">Help App 4</span>
-                        </div>
-                        <svg class="w-4 h-4 text-gray-500 group-hover:text-fluency-neon transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </button>
-                    <button onclick="launchHelpApp(5)" class="group flex items-center justify-between p-4 border border-gray-800 hover:border-fluency-neon/40 bg-[#0d1015]/80 hover:bg-fluency-neon/5 rounded-xl transition duration-150 text-left">
-                        <div class="flex items-center gap-3">
-                            <span class="text-xl">✨</span>
-                            <span class="font-bold text-gray-200 group-hover:text-white transition">Help App 5</span>
-                        </div>
-                        <svg class="w-4 h-4 text-gray-500 group-hover:text-fluency-neon transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </button>
-                    <button onclick="launchHelpApp(6)" class="group flex items-center justify-between p-4 border border-gray-800 hover:border-fluency-neon/40 bg-[#0d1015]/80 hover:bg-fluency-neon/5 rounded-xl transition duration-150 text-left">
-                        <div class="flex items-center gap-3">
-                            <span class="text-xl">✨</span>
-                            <span class="font-bold text-gray-200 group-hover:text-white transition">Help App 6</span>
-                        </div>
-                        <svg class="w-4 h-4 text-gray-500 group-hover:text-fluency-neon transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </button>
+                <div id="help-list-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <!-- Configured Help Apps dynamically injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Games Centre Modal (Configured via Code manually) -->
+    <div id="games-modal" class="fixed inset-0 z-[60] hidden bg-black/95 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-fluency-panel border border-fluency-copper/40 w-full max-w-xl rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(212,107,33,0.2)] flex flex-col">
+            <!-- Header -->
+            <div class="p-6 border-b border-gray-800 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl">🎮</span>
+                    <h4 class="text-lg font-display font-bold text-white">Games Centre</h4>
+                </div>
+                <button onclick="closeGamesModal()" class="text-gray-400 hover:text-white bg-gray-800 hover:bg-gray-700 p-1.5 rounded-lg transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            
+            <!-- Grid of User's Configured Games -->
+            <div class="p-6 space-y-4 max-h-[60vh] overflow-y-auto">
+                <p class="text-xs font-semibold uppercase tracking-wider text-fluency-copper">Select a game below to launch:</p>
+                <div id="games-list-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <!-- Configured Games dynamically injected here -->
                 </div>
             </div>
         </div>
@@ -378,6 +366,62 @@
         // Store current active indexes globally to pull correct Homework target expressions
         let activeUnitIndex = 0;
         let activeStoryIndex = 0;
+
+        // Custom list of games - modify this list to manually change displayed games
+        const gamesData = [
+            {
+                id: 1,
+                title: "Snakes & Chatter",
+                emoji: "🐍",
+                url: "https://snakes-and-chatter.netlify.app/"
+            },
+            {
+                id: 2,
+                title: "Balloon Pop",
+                emoji: "🎈",
+                url: "https://balloon-pop.puter.site/"
+            }
+        ];
+
+        // Custom list of Help Apps - easily add, remove, or modify apps here!
+        const helpAppsData = [
+            {
+                id: 1,
+                title: "Help App 1",
+                emoji: "✨",
+                url: "https://classexpressions.netlify.app/"
+            },
+            {
+                id: 2,
+                title: "Help App 2",
+                emoji: "✨",
+                url: "https://classexpressions2.netlify.app/"
+            },
+            {
+                id: 3,
+                title: "Help App 3",
+                emoji: "✨",
+                url: "https://english-essentials.netlify.app/"
+            },
+            {
+                id: 4,
+                title: "Help App 4",
+                emoji: "✨",
+                url: "" // Triggers dynamic alert toast if no URL is provided
+            },
+            {
+                id: 5,
+                title: "Help App 5",
+                emoji: "✨",
+                url: ""
+            },
+            {
+                id: 6,
+                title: "Help App 6",
+                emoji: "✨",
+                url: ""
+            }
+        ];
 
         // Web Audio API Context for synthesized UI sounds
         let audioCtx = null;
@@ -491,24 +535,7 @@
                             return apps;
                         })(),
                         homeworkPrompt: "Write one sentence for each of the expressions listed below. Each sentence should be about 7 words long.\n\n1. Walk down.\n\n2. Lucky.\n\n3. Through.\n\n4. Bigger than.\n\n5. Wonder.\n\n6. Greedy.",
-                        transcript: `The Dog and his Bone
-
-A dog is walking down the street, when he sees a bone in a trash can. “A bone! Yippee! How lucky for me!” he thinks. He grabs the bone, and happily runs home.
-
-He runs past the train station and the school. He runs through the park. He runs onto a bridge. On the bridge, the dog looks down into the deep, still water below.
-
-There, he sees another dog with a bone in its mouth. “Who is that dog?” he wonders. “What is he doing down there?” The dog stares at the other dog. The other dog stares back.
-
-“Where did that dog get such a BIG bone?” the dog wonders. “Why is his bone bigger than mine?” The dog growls at the other dog. The other dog growls too. “I want that big bone!” he thinks.
-
-The greedy dog decides to steal the other dog's bone. He leaps off the bridge and into the water. Splash! But as soon as he hits the water, the other dog disappears. There was never any other dog. It was just his own reflection!
-
-The water is very deep and the dog is surprised. “Woof woof woof! Help!” he barks. And when he barks, his bone drops from his mouth and sinks to the bottom of the water.
-The dog swims to shore. He is wet and cold, and now he has no bone at all.
-
-Moral:
-
-Be happy with what you have. If you're greedy, you might lose everything.`,
+                        transcript: `The Dog and his Bone\n\nA dog is walking down the street, when he sees a bone in a trash can. “A bone! Yippee! How lucky for me!” he thinks. He grabs the bone, and happily runs home.\n\nHe runs past the train station and the school. He runs through the park. He runs onto a bridge. On the bridge, the dog looks down into the deep, still water below.\n\nThere, he sees another dog with a bone in its mouth. “Who is that dog?” he wonders. “What is he doing down there?” The dog stares at the other dog. The other dog stares back.\n\n“Where did that dog get such a BIG bone?” the dog wonders. “Why is his bone bigger than mine?” The dog growls at the other dog. The other dog growls too. “I want that big bone!” he thinks.\n\nThe greedy dog decides to steal the other dog's bone. He leaps off the bridge and into the water. Splash! But as soon as he hits the water, the other dog disappears. There was never any other dog. It was just his own reflection!\n\nThe water is very deep and the dog is surprised. “Woof woof woof! Help!” he barks. And when he barks, his bone drops from his mouth and sinks to the bottom of the water.\nThe dog swims to shore. He is wet and cold, and now he has no bone at all.\n\nMoral:\n\nBe happy with what you have. If you're greedy, you might lose everything.`,
                         speakingExpressions: [
                             "There is … / There are …",
                             "Your turn / Say it",
@@ -564,20 +591,7 @@ Be happy with what you have. If you're greedy, you might lose everything.`,
                             return apps;
                         })(),
                         homeworkPrompt: "Write one sentence for each of the expressions listed below. Each sentence should be about 7 words long.\n\n1. Have been.\n2. Do you think that..?\n3. Useless.\n4. Luckily.\n5. Branches.\n6. Comfortable.",
-                        transcript: `The Oak Tree:
-
-One hot day, two hikers are walking in the dry, brown hills. They have been walking all day, and they are tired and hungry. They see a tree in the distance. “I am sooooo hungry!” says one hiker. “Do you think that’s an apple tree? I want a big, crunchy, red apple!”
-
-“Nah, that’s not an apple tree,” says the other. “It's a pear tree! Pears are my favorite. I want a sweet, juicy, yellow pear!” But when they arrive at the tree, there are no apples. Or pears either! In fact, there is no fruit at all. “Aw, boo!” says one hiker. “It’s a useless oak tree!”
-
-Just then, the sky turns grey and it starts to rain. The two hikers run under the oak tree to stay dry. It rains and rains, but the oak tree is like a big umbrella. The hikers don't get wet. They wait under the oak tree for the rain to stop. Day turns into night. “I’m cold,” says one hiker. “We should make a fire. Help me collect some wood!”
-
-Luckily, there are many old branches under the oak tree. The two hikers collect the branches and make a nice campfire out of them. They sit beside the fire to warm themselves. “I’m tired,” says one hiker. “We should sleep here tonight. Help me make a bed!”
-The hikers make a bed out of soft, green oak leaves. They snuggle into the leaves and fall asleep. The rain falls and the wind blows, but the hikers are comfortable, warm and dry under the “useless” oak tree.
-
-Moral:
-
-Sometimes the best gifts aren’t what we originally hoped for.`,
+                        transcript: `The Oak Tree:\n\nOne hot day, two hikers are walking in the dry, brown hills. They have been walking all day, and they are tired and hungry. They see a tree in the distance. “I am sooooo hungry!” says one hiker. “Do you think that’s an apple tree? I want a big, crunchy, red apple!”\n\n“Nah, that’s not an apple tree,” says the other. “It's a pear tree! Pears are my favorite. I want a sweet, juicy, yellow pear!” But when they arrive at the tree, there are no apples. Or pears either! In fact, there is no fruit at all. “Aw, boo!” says one hiker. “It’s a useless oak tree!”\n\nJust then, the sky turns grey and it starts to rain. The two hikers run under the oak tree to stay dry. It rains and rains, but the oak tree is like a big umbrella. The hikers don't get wet. They wait under the oak tree for the rain to stop. Day turns into night. “I’m cold,” says one hiker. “We should make a fire. Help me collect some wood!”\n\nLuckily, there are many old branches under the oak tree. The two hikers collect the branches and make a nice campfire out of them. They sit beside the fire to warm themselves. “I’m tired,” says one hiker. “We should sleep here tonight. Help me make a bed!”\nThe hikers make a bed out of soft, green oak leaves. They snuggle into the leaves and fall asleep. The rain falls and the wind blows, but the hikers are comfortable, warm and dry under the “useless” oak tree.\n\nMoral:\n\nSometimes the best gifts aren’t what we originally hoped for.`,
                         speakingExpressions: [
                             "How do you feel today?",
                             "When I feel sleepy …",
@@ -628,25 +642,7 @@ Sometimes the best gifts aren’t what we originally hoped for.`,
                             return apps;
                         })(),
                         homeworkPrompt: "Write one sentence for each of the expressions listed below. Each sentence should be about 7 words long. \n\n1. Early\n2. Something.\n3. I’ve found.\n4. Did you … ?\n5. Branch.\n6. Tightly.\n7. Feathers.\n8. Everyone.\n9. Swallow.",
-                        transcript: `The Fox and the Crow:
-
-Early one morning, a fox is walking through the woods. He is hungry, and he is looking for something to eat. He sees a crow sitting on the highest branch of a tree. The crow has a piece of cheese in her beak. ‘Hmmm I love cheese’ thinks the fox. I think I’ve found my breakfast.
-
-But how can I get the cheese? He thinks and thinks, then, he has a clever idea. ‘I will make her talk’. He sits at the bottom of the tree, and looks up at the crow. ‘Good morning Miss Crow!’ he says. It's a lovely day, isn't it? The crow looks down at the fox. She says nothing.
-
-‘I said ¡Good morning!’ says the fox. ‘Did you hear me? maybe you can't hear me up there’. The crow is suspicious. She holds the cheese tightly in her beak and says nothing. ‘Hmm This is not so easy’ thinks the fox, but he doesn't give up.
-
-He smiles at the crow. ‘You know you really are the most beautiful bird’ he says. Your feathers are so shiny, your eyes are so intelligent, your beak is so hmm pointy. Everything about you is perfect. Still the crow says nothing.
-So the fox says ‘Tell Me Miss Crow, is your voice also magnificent?
-
-I hear that you have the most wonderful voice, please sing for me  just one song’. Then I can tell everyone you really are the most incredible bird. The queen of all birds in fact.
-
-This makes the crow feel good. She wants everyone to know she has a wonderful voice. She wants everyone to know that she is the queen of all birds. She smiles a little smile, then she smiles a big smile. Then, she opens her mouth to sing her best song for the fox. And ‘plop’ the cheese drops out of her beak, and falls straight into the mouth of the fox.
-He swallows it in one gulp! ‘Hmmm, thank you for the delicious breakfast Miss Crow!’ Laughs the fox as he walks away. ‘Have a lovely day!’.
-
-Moral:
-
-Beware of flatterers. They often want something from you.`,
+                        transcript: `The Fox and the Crow:\n\nEarly one morning, a fox is walking through the woods. He is hungry, and he is looking for something to eat. He sees a crow sitting on the highest branch of a tree. The crow has a piece of cheese in her beak. ‘Hmmm I love cheese’ thinks the fox. I think I’ve found my breakfast.\n\nBut how can I get the cheese? He thinks and thinks, then, he has a clever idea. ‘I will make her talk’. He sits at the bottom of the tree, and looks up at the crow. ‘Good morning Miss Crow!’ he says. It's a lovely day, isn't it? The crow looks down at the fox. She says nothing.\n\n‘I said ¡Good morning!’ says the fox. ‘Did you hear me? maybe you can't hear me up there’. The crow is suspicious. She holds the cheese tightly in her beak and says nothing. ‘Hmm This is not so easy’ thinks the fox, but he doesn't give up.\n\nHe smiles at the crow. ‘You know you really are the most beautiful bird’ he says. Your feathers are so shiny, your eyes are so intelligent, your beak is so hmm pointy. Everything about you is perfect. Still the crow says nothing.\nSo the fox says ‘Tell Me Miss Crow, is your voice also magnificent?\n\nI hear that you have the most wonderful voice, please sing for me  just one song’. Then I can tell everyone you really are the most incredible bird. The queen of all birds in fact.\n\nThis makes the crow feel good. She wants everyone to know she has a wonderful voice. She wants everyone to know that she is the queen of all birds. She smiles a little smile, then she smiles a big smile. Then, she opens her mouth to sing her best song for the fox. And ‘plop’ the cheese drops out of her beak, and falls straight into the mouth of the fox.\nHe swallows it in one gulp! ‘Hmmm, thank you for the delicious breakfast Miss Crow!’ Laughs the fox as he walks away. ‘Have a lovely day!’.\n\nMoral:\n\nBeware of flatterers. They often want something from you.`,
                         speakingExpressions: [
                             "Look for someone / something that …",
                             "I found it / him / her.",
@@ -703,24 +699,7 @@ Beware of flatterers. They often want something from you.`,
                             return apps;
                         })(),
                         homeworkPrompt: "Write one sentence for each of the expressions listed below. Each sentence should be about 7 words long. \n\n1. There was.\n2. Clever.\n3. Jealous of.\n4. Foolish.\n5. Why do you…?\n6. Every time.\n7. Everyone.\n8. Felt bad.\n9. Quickly.\n10. The whole.\n11. Enjoy.\n12. Often.",
-                        transcript: `Don't Show off | The Art of Quiet Success:
-
-Once there was a very clever minister in a king's court. This Minister had a solution for every problem, and the King did not make any big decision without asking him. Because of this, other people in the court were jealous of the minister.
-
-One day, the king told the minister: ‘You are very smart, but your son is very foolish, and has no sense’. The minister did not like this and asked: ‘Your majesty, why are you saying this? Why do you think my son is foolish?’. The king said: ‘Every morning when I go to meet the people, your son is there. I ask him everyday, what is more valuable, gold or silver. And everytime your son says silver’.
-
-Hearing this, everyone in the court started laughing, and the minister felt bad. Without saying anything, he went straight home and asked his son, ‘Which metal is more valuable, gold or silver?’. The son quickly replied ‘Father, gold’.
-
-The minister then asked, ‘If you know that gold is valuable, why do you give the king the wrong answer every day, and say silver is more valuable?’. The son replied, ‘Father, every morning the king comes to the market to meet the people. Every day he calls me, places two coins in front of me, one silver, and one gold and asks me, ‘Take the more valuable one’, I pick the silver coin, and the King laughs and goes away.
-The minister then asked his son, ‘Why do you pick the silver coin every day?. Today because of this, the whole court made fun of me’.
-
-Hearing this, the son took his father to his room, and opened a box. The box was full of silver coins. Seeing so many silver coins, the minister was surprised and asked, ‘How did you get so many silver coins?’. The son replied, ‘Father, these are the coins that the king gives me. The day I give the king the right answer and take the gold coin, he will stop asking me this question, and I will stop getting a silver coin every day.
-
-The king enjoys it when I pick the silver coin and say that silver is more valuable than gold. He laughs and goes away without thinking too much. I don't want to lose my daily silver coin for one gold coin’. Hearing this, the son felt proud of his son and understood that even though people called his son foolish, his son's wisdom was something that only a wise person could understand. Now, whenever anyone called his son foolish, the minister would smile and leave.
-
-Friends, you may have noticed that some people do a little work and make a big show of it. While others do great things without showing off. If you know that what you're doing is right, then it doesn't matter if people call you foolish or crazy. The world often calls those it doesn't understand crazy.
-
-So if you want to share this story with more people, please like this video. I'll see you next time with another story like this, so be patient, be grateful, and keep moving forward in life.`,
+                        transcript: `Don't Show off | The Art of Quiet Success:\n\nOnce there was a very clever minister in a king's court. This Minister had a solution for every problem, and the King did not make any big decision without asking him. Because of this, other people in the court were jealous of the minister.\n\nOne day, the king told the minister: ‘You are very smart, but your son is very foolish, and has no sense’. The minister did not like this and asked: ‘Your majesty, why are you saying this? Why do you think my son is foolish?’. The king said: ‘Every morning when I go to meet the people, your son is there. I ask him everyday, what is more valuable, gold or silver. And everytime your son says silver’.\n\nHearing this, everyone in the court started laughing, and the minister felt bad. Without saying anything, he went straight home and asked his son, ‘Which metal is more valuable, gold or silver?’. The son quickly replied ‘Father, gold’.\n\nThe minister then asked, ‘If you know that gold is valuable, why do you give the king the wrong answer every day, and say silver is more valuable?’. The son replied, ‘Father, every morning the king comes to the market to meet the people. Every day he calls me, places two coins in front of me, one silver, and one gold and asks me, ‘Take the more valuable one’, I pick the silver coin, and the King laughs and goes away.\nThe minister then asked his son, ‘Why do you pick the silver coin every day?. Today because of this, the whole court made fun of me’.\n\nHearing this, the son took his father to his room, and opened a box. The box was full of silver coins. Seeing so many silver coins, the minister was surprised and asked, ‘How did you get so many silver coins?’. The son replied, ‘Father, these are the coins that the king gives me. The day I give the king the right answer and take the gold coin, he will stop asking me this question, and I will stop getting a silver coin every day.\n\nThe king enjoys it when I pick the silver coin and say that silver is more valuable than gold. He laughs and goes away without thinking too much. I don't want to lose my daily silver coin for one gold coin’. Hearing this, the son felt proud of his son and understood that even though people called his son foolish, his son's wisdom was something that only a wise person could understand. Now, whenever anyone called his son foolish, the minister would smile and leave.\n\nFriends, you may have noticed that some people do a little work and make a big show of it. While others do great things without showing off. If you know that what you're doing is right, then it doesn't matter if people call you foolish or crazy. The world often calls those it doesn't understand crazy.\n\nSo if you want to share this story with more people, please like this video. I'll see you next time with another story like this, so be patient, be grateful, and keep moving forward in life.`,
                         speakingExpressions: [
                             "The student should always answer / speak in complete sentences.",
                         ]
@@ -774,26 +753,7 @@ So if you want to share this story with more people, please like this video. I'l
                             return apps;
                         })(),                        
                         homeworkPrompt: "Write one sentence for each of the expressions listed below. Each sentence should be about 8 words long.\n\n1. Peaceful.\n2. Known.\n3. Guide.\n4. Carry.\n5. Every time.\n6. Could have.\n7. Notice.\n8. Forward.\n9. Drown.\n10. Unwrap.\n11. Mistake.\n12. Burden.",
-                        transcript: `Letting Go of the Past:
-
-In a small peaceful village by the river, there lived a man named Sammy. Sammy was known for his skill as a boatman. Everyday he ferried villagers across the river, guiding them safely through calm waters and storms alike. But Sammy carried something heavy, not in his hands or on his boat, but in his heart.
-
-Years ago, Sammy had lost his younger brother in a tragic accident on the river. Since that day, Sammy blamed himself. Every time he closed his eyes, he saw the past. What went wrong? What he could have done differently? His days became filled with regret. He started moving slower, his smile faded, and the villagers noticed he was no longer the man who used to laugh by the fire at night.
-
-One morning, a little girl named Amina came to Sammy’s boat. She had big, curious eyes and asked, ‘Uncle Sammy, why do you look so sad all the time?’ Sammy sighed. I carry a heavy weight, child. A weight from yesterday.
-Amina tilted her head and said softly,‘But uncle, if you carry yesterday, how will you see today?’ Her words struck Sammy deeply.
-
-That evening, Sammy sat by the riverbank, watching the water flow endlessly toward the sea. The river didn't hold on to anything. It never looked back. It just moved forward. Sammy realized something powerful. His past was like the river, and he was trying to carry its stones in his boat. But the stones only weighed him down.
-
-From that day, Sammy made a choice. He would remember yesterday but not carry it. He would honor his brother's memory by living fully, not by drowning in guilt.
-The next morning, Sammy took a deep breath, stepped into his boat, and smiled at the rising sun. For the first time in years, he felt light. And as the boat gently rocked on the river, Sammy knew the past was behind him, the future was ahead, and today, today was a gift waiting to be unwrapped.
-
-Reflection:
-
-If we look at our own lives, it's easy to get stuck carrying the weight of yesterday, the mistakes, the losses, the regrets. But the truth is yesterday is a lesson, not a life sentence.
-The river teaches us to let go, to flow forward, and to embrace each new day without the burden of what has already passed. Let go of what drags you down.
-
-Honor your past, but don't carry it. Because life is too precious and today is too beautiful to be held hostage by yesterday.`,
+                        transcript: `Letting Go of the Past:\n\nIn a small peaceful village by the river, there lived a man named Sammy. Sammy was known for his skill as a boatman. Everyday he ferried villagers across the river, guiding them safely through calm waters and storms alike. But Sammy carried something heavy, not in his hands or on his boat, but in his heart.\n\nYears ago, Sammy had lost his younger brother in a tragic accident on the river. Since that day, Sammy blamed himself. Every time he closed his eyes, he saw the past. What went wrong? What he could have done differently? His days became filled with regret. He started moving slower, his smile faded, and the villagers noticed he was no longer the man who used to laugh by the fire at night.\n\nOne morning, a little girl named Amina came to Sammy’s boat. She had big, curious eyes and asked, ‘Uncle Sammy, why do you look so sad all the time?’ Sammy sighed. I carry a heavy weight, child. A weight from yesterday.\nAmina tilted her head and said softly,‘But uncle, if you carry yesterday, how will you see today?’ Her words struck Sammy deeply.\n\nThat evening, Sammy sat by the riverbank, watching the water flow endlessly toward the sea. The river didn't hold on to anything. It never looked back. It just moved forward. Sammy realized something powerful. His past was like the river, and he was trying to carry its stones in his boat. But the stones only weighed him down.\n\nFrom that day, Sammy made a choice. He would remember yesterday but not carry it. He would honor his brother's memory by living fully, not by drowning in guilt.\nThe next morning, Sammy took a deep breath, stepped into his boat, and smiled at the rising sun. For the first time in years, he felt light. And as the boat gently rocked on the river, Sammy knew the past was behind him, the future was ahead, and today, today was a gift waiting to be unwrapped.\n\nReflection:\n\nIf we look at our own lives, it's easy to get stuck carrying the weight of yesterday, the mistakes, the losses, the regrets. But the truth is yesterday is a lesson, not a life sentence.\nThe river teaches us to let go, to flow forward, and to embrace each new day without the burden of what has already passed. Let go of what drags you down.\n\nHonor your past, but don't carry it. Because life is too precious and today is too beautiful to be held hostage by yesterday.`,
                         speakingExpressions: [
                             "Generate a ‘Wh Question’ for any of the statements hidden in the boxes:",
                         ]
@@ -844,27 +804,7 @@ Honor your past, but don't carry it. Because life is too precious and today is t
                             return apps;
                         })(),                        
                         homeworkPrompt: "Write one sentence for each of the expressions listed below. Each sentence should be about 8 words long.\n\n1. Depends on.\n2. Between.\n3. Almost.\n4. Foolish.\n5. A couple of.\n6. Caused by.\n7. Cloudy.\n8. Actually.\n9. Always.\n10. I usually.\n11. Instead.\n12. Kind of.",
-                        transcript: `Living with the Dark Winters in Sweden: Part 1
-
-My name is Jonna and I live in the north of Sweden. Sweden is a country with a lot of light. And it's also a country with a lot of darkness. It all depends on what season it is. Just like many other countries in the northern hemisphere there is a strong contrast in the light conditions between summer and winter.
-
-In the winter it's dark almost all the time. And in the summer it's light all the time. During the summer in the very north of Sweden the sun never sets between the end of May until the middle of July. So, you can see the sun 24 hours a day and that is called the midnight sun.
-And then, during the winter in the very north of Sweden it's the opposite; for a couple of weeks the sun never rises above the horizon, which means that there is no sunlight for about a month, and that is called the polar night.
-
-This extreme contrast in light is caused by the rotation of the earth in relation to the position of the sun, and the further north you go, the bigger the contrast.
-I live in the middle north of Sweden and if I'm lucky and there is a clear sky, I can see the sun above the treetops for about an hour during the darkest time of the year.“It's uhm the middle of the day and this is how high the sun goes up now. It's just a little bit over the horizon or over the trees.”
-
-But winters like this one, when it's been cloudy every day I actually didn't see a glimpse of the sun for over a month. But just a few days ago, now in the beginning of January I got to feel the sunlight on my face again. “This is the first glimpse of the sun that we see in over a month. Do you see this?”
-
-And that feeling when you begin to feel the sunlight again in January is always overwhelming. It's like seeing the sun for the first time in your life.
-Even if it can be hard sometimes with these kinds of light conditions; I really love it and I would never want to change it. I think the light is never as beautiful as it is during these most extreme times of the year. When it's summer I usually change my rhythm and stay up all night and then sleep in the forenoon instead.
-
-The light is so beautiful in the middle of the night, and as a filmmaker and photographer It's like a dream to be out and capture the beauty of the bright nights of June.
-And then in the winter even if we don't get so much sunlight, we at least get a few hours of twilight during the day, and that light is the most beautiful kind of daylight that I know. It's like experiencing a long sunrise without a sun.
-
-And, when it's a clear sky and the sun is rising just a tiny bit above the treetops it spreads a soft and pink light all over the landscape, and that is beyond beautiful.
-
-Around 3 in the day it's already getting dark and it makes the evenings feel never ending. But the darkness makes us see what is never visible in the light because actually we do get sunlight. From thousands of suns far, far away.`,
+                        transcript: `Living with the Dark Winters in Sweden: Part 1\n\nMy name is Jonna and I live in the north of Sweden. Sweden is a country with a lot of light. And it's also a country with a lot of darkness. It all depends on what season it is. Just like many other countries in the northern hemisphere there is a strong contrast in the light conditions between summer and winter.\n\nIn the winter it's dark almost all the time. And in the summer it's light all the time. During the summer in the very north of Sweden the sun never sets between the end of May until the middle of July. So, you can see the sun 24 hours a day and that is called the midnight sun.\nAnd then, during the winter in the very north of Sweden it's the opposite; for a couple of weeks the sun never rises above the horizon, which means that there is no sunlight for about a month, and that is called the polar night.\n\nThis extreme contrast in light is caused by the rotation of the earth in relation to the position of the sun, and the further north you go, the bigger the contrast.\nI live in the middle north of Sweden and if I'm lucky and there is a clear sky, I can see the sun above the treetops for about an hour during the darkest time of the year.“It's uhm the middle of the day and this is how high the sun goes up now. It's just a little bit over the horizon or over the trees.”\n\nBut winters like this one, when it's been cloudy every day I actually didn't see a glimpse of the sun for over a month. But just a few days ago, now in the beginning of January I got to feel the sunlight on my face again. “This is the first glimpse of the sun that we see in over a month. Do you see this?”\n\nAnd that feeling when you begin to feel the sunlight again in January is always overwhelming. It's like seeing the sun for the first time in your life.\nEven if it can be hard sometimes with these kinds of light conditions; I really love it and I would never want to change it. I think the light is never as beautiful as it is during these most extreme times of the year. When it's summer I usually change my rhythm and stay up all night and then sleep in the forenoon instead.\n\nThe light is so beautiful in the middle of the night, and as a filmmaker and photographer It's like a dream to be out and capture the beauty of the bright nights of June.\nAnd then in the winter even if we don't get so much sunlight, we at least get a few hours of twilight during the day, and that light is the most beautiful kind of daylight that I know. It's like experiencing a long sunrise without a sun.\n\nAnd, when it's a clear sky and the sun is rising just a tiny bit above the treetops it spreads a soft and pink light all over the landscape, and that is beyond beautiful.\n\nAround 3 in the day it's already getting dark and it makes the evenings feel never ending. But the darkness makes us see what is never visible in the light because actually we do get sunlight. From thousands of suns far, far away.`,
                         speakingExpressions: [
                             "I guess that ...",
                             "The first (second, third, fourth, last) one is ...",
@@ -888,17 +828,7 @@ Around 3 in the day it's already getting dark and it makes the evenings feel nev
                         description: "Dark winters with no sunlight for many weeks, and bright summers with sunlight 24 hours a day. In this video I want to take you on a journey to the darkest and brightest times of the year, and share the beauty and the challenges that comes with them.",
                         apps: generateApps(),
                         homeworkPrompt: " family. Include descriptions of family relations, traditional expressions, and dining settings.",
-                        transcript: `FAMILY GATHERINGS
-
-[Warm Family Dinner Ambient Sound]
-
-Grandmother: Pass the potatoes down, please. It is so wonderful to have everyone seated together under one roof.
-
-Uncle: It truly is. It's been nearly two years since we all gathered like this.
-
-Cousin: I was just telling Aunt Clara how much I missed her traditional apple pie recipe.
-
-Grandmother: Well, you are in luck! Clara baked two of them this morning. Let's enjoy our main course first!`,
+                        transcript: `FAMILY GATHERINGS\n\n[Warm Family Dinner Ambient Sound]\n\nGrandmother: Pass the potatoes down, please. It is so wonderful to have everyone seated together under one roof.\n\nUncle: It truly is. It's been nearly two years since we all gathered like this.\n\nCousin: I was just telling Aunt Clara how much I missed her traditional apple pie recipe.\n\nGrandmother: Well, you are in luck! Clara baked two of them this morning. Let's enjoy our main course first!`,
                         speakingExpressions: [
                             "Pass the... down, please",
                             "Seated together under one roof",
@@ -919,19 +849,7 @@ Grandmother: Well, you are in luck! Clara baked two of them this morning. Let's 
                         description: "Quick thinking and communication solve an unexpected event during critical travel delays.",
                         apps: generateApps(),
                         homeworkPrompt: "Write an incident report detailing a travel emergency scenario and the communicative steps taken to secure an alternate pathway.",
-                        transcript: `CRITICAL RESOLUTION
-
-[Train Station Announcements Background]
-
-Traveler: Excuse me, the board says the 4:15 express train to Berlin is cancelled. Is that correct?
-
-Agent: Yes, I am afraid there is an electrical issue on the northern tracks. All express trains on that route are delayed indefinitely.
-
-Traveler: Oh no, I have a vital presentation to deliver this evening. Is there an alternative route?
-
-Agent: You can take the regional commuter line to the southern junction, then transfer directly to the high-speed shuttle. It will take forty minutes longer, but you will arrive by 7:30.
-
-Traveler: Perfect. Thank you for your quick thinking and assistance!`,
+                        transcript: `CRITICAL RESOLUTION\n\n[Train Station Announcements Background]\n\nTraveler: Excuse me, the board says the 4:15 express train to Berlin is cancelled. Is that correct?\n\nAgent: Yes, I am afraid there is an electrical issue on the northern tracks. All express trains on that route are delayed indefinitely.\n\nTraveler: Oh no, I have a vital presentation to deliver this evening. Is there an alternative route?\n\nAgent: You can take the regional commuter line to the southern junction, then transfer directly to the high-speed shuttle. It will take forty minutes longer, but you will arrive by 7:30.\n\nTraveler: Perfect. Thank you for your quick thinking and assistance!`,
                         speakingExpressions: [
                             "Is that correct?",
                             "I am afraid there is an issue",
@@ -1254,8 +1172,19 @@ Traveler: Perfect. Thank you for your quick thinking and assistance!`,
             document.getElementById('speaking-modal').classList.add('hidden');
         };
 
-        // Need Help Overlay Control
+        // Need Help Overlay Control with Dynamic Rendering
         window.openHelpModal = () => {
+            const listContainer = document.getElementById('help-list-container');
+            listContainer.innerHTML = helpAppsData.map(app => `
+                <button onclick="launchHelpAppById(${app.id})" class="group flex items-center justify-between p-4 border border-gray-800 hover:border-fluency-neon/40 bg-[#0d1015]/80 hover:bg-fluency-neon/5 rounded-xl transition duration-150 text-left">
+                    <div class="flex items-center gap-3">
+                        <span class="text-xl">${app.emoji || '✨'}</span>
+                        <span class="font-bold text-gray-200 group-hover:text-white transition">${app.title}</span>
+                    </div>
+                    <svg class="w-4 h-4 text-gray-500 group-hover:text-fluency-neon transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            `).join('');
+
             document.getElementById('help-modal').classList.remove('hidden');
             document.body.classList.add('overflow-hidden');
         };
@@ -1265,18 +1194,49 @@ Traveler: Perfect. Thank you for your quick thinking and assistance!`,
             document.body.classList.remove('overflow-hidden');
         };
 
-        // Direct Help App 1 & 2 to custom links
-        window.launchHelpApp = (appNumber) => {
+        // Dynamic Help App Router using helpAppsData configuration
+        window.launchHelpAppById = (id) => {
             closeHelpModal();
-            if (appNumber === 1) {
-                launchApp("Help App 1", "https://classexpressions.netlify.app/");
-            } else if (appNumber === 2) {
-                launchApp("Help App 2", "https://classexpressions2.netlify.app/");              
-            } else if (appNumber === 3) {
-                launchApp("Help App 3", "https://english-essentials.netlify.app/");
-            } else {
-                alertExercise(`Help App ${appNumber}`);
+            const app = helpAppsData.find(a => a.id === id);
+            if (app) {
+                if (app.url) {
+                    launchApp(app.title, app.url);
+                } else {
+                    alertExercise(app.title);
+                }
             }
+        };
+
+        // Backward compatibility fallback for legacy inline listeners
+        window.launchHelpApp = (appNumber) => {
+            window.launchHelpAppById(appNumber);
+        };
+
+        // Games Centre Overlay Controls
+        window.openGamesModal = () => {
+            const listContainer = document.getElementById('games-list-container');
+            listContainer.innerHTML = gamesData.map(game => `
+                <button onclick="launchGame('${game.title}', '${game.url}')" class="group flex items-center justify-between p-4 border border-gray-800 hover:border-fluency-copper/40 bg-[#0d1015]/80 hover:bg-fluency-copper/5 rounded-xl transition duration-150 text-left">
+                    <div class="flex items-center gap-3">
+                        <span class="text-xl">${game.emoji || '🎮'}</span>
+                        <span class="font-bold text-gray-200 group-hover:text-white transition">${game.title}</span>
+                    </div>
+                    <svg class="w-4 h-4 text-gray-500 group-hover:text-fluency-copper transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            `).join('');
+
+            document.getElementById('games-modal').classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        };
+
+        window.closeGamesModal = () => {
+            document.getElementById('games-modal').classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        };
+
+        window.launchGame = (gameName, url) => {
+            closeGamesModal();
+            launchApp(gameName, url);
         };
 
         // Custom action function to launch speaking app
