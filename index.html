@@ -748,7 +748,7 @@
                         thumbnail: "https://img.youtube.com/vi/3zTR4ayDG38/hqdefault.jpg",
                         description: "Dark winters with no sunlight for many weeks, and bright summers with sunlight 24 hours a day. In this video I want to take you on a journey to the darkest and brightest times of the year, and share the beauty and the challenges that comes with them.",
                         apps: (() => {
-                            // Request exactly 7 apps to prevent random slicing
+                            // Request exactly 8 apps to prevent random slicing
                             const apps = generateApps(8);
                             
                             // Assign the specified link to App 1
@@ -808,8 +808,41 @@
                         youtubeId: "3zTR4ayDG38",
                         thumbnail: "https://img.youtube.com/vi/3zTR4ayDG38/hqdefault.jpg",
                         description: "Dark winters with no sunlight for many weeks, and bright summers with sunlight 24 hours a day. In this video I want to take you on a journey to the darkest and brightest times of the year, and share the beauty and the challenges that comes with them.",
-                        apps: generateApps(),
-                        homeworkPrompt: " family. Include descriptions of family relations, traditional expressions, and dining settings.",
+                        apps: (() => {
+                            // Request exactly 7 apps to prevent random slicing
+                            const apps = generateApps(7);
+                            
+                            // Assign the specified link to App 1
+                            apps[0].url = "https://sweden2-1.netlify.app/";
+                            apps[0].instruction = "Listen to part 1 of the story and put the sentences in the correct order.";
+                            
+                            // Assign the specified link to App 2
+                            apps[1].url = "https://wordcatcher.netlify.app/";
+                            apps[1].instruction = "Read the sentence at the top, then tap the correct floating bubble containing the missing word.";
+                            
+                            // Assign the specified link to App 3
+                            apps[2].url = "https://sweden2-2.netlify.app/";
+                            apps[2].instruction = "Listen to part 2 of the story and put the sentences in the correct order.";
+                            
+                            // Assign the specified link to App 4
+                            apps[3].url = "https://swedenmemory.netlify.app/";
+                            apps[3].instruction = "Take a look at the expressions in the study section, then match each one to the situation in context.";
+                            
+                            // Assign the specified link to App 5
+                            apps[4].url = "https://sweden-quiz.puter.site/";
+                            apps[4].instruction = "Choose an icon and describe its position in the grid (For example, 'The speaker icon is next to the key and above the sun'). Then, click it to answer the question, and select Compare Answers to check your response.";
+                            
+                            // Assign the specified link to App 6
+                            apps[5].url = "https://sweden2-3.netlify.app/";
+                            apps[5].instruction = "Listen to the last part of the story and put the sentences in the correct order.";
+                            
+                            // Assign the specified link to App 7
+                            apps[6].url = "https://common-verbs.netlify.app/";
+                            apps[6].instruction = "Play the Balloon Pop game with a partner. Open this app and select the sphere corresponding to the number of balloons remaining, then use the revealed verb in a personal, real-life sentence.";
+                            
+                            return apps;
+                        })(),                        
+                        homeworkPrompt: "Write one sentence for each of the expressions listed below. Each sentence should be about 10 words long.\n\n1. Breathtaking.\n2. Surface.\n3. Towards.\n4. As long as.\n5. Worth.\n6. Even though.\n7. I would...\n8. Curtains.\n9. Challenging.\n10. A few ...\n11. Weather.\n12. Has become.",
                         transcript: `FAMILY GATHERINGS\n\n[Warm Family Dinner Ambient Sound]\n\nGrandmother: Pass the potatoes down, please. It is so wonderful to have everyone seated together under one roof.\n\nUncle: It truly is. It's been nearly two years since we all gathered like this.\n\nCousin: I was just telling Aunt Clara how much I missed her traditional apple pie recipe.\n\nGrandmother: Well, you are in luck! Clara baked two of them this morning. Let's enjoy our main course first!`,
                         speakingExpressions: [
                             "Pass the... down, please",
