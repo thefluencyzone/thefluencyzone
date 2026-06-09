@@ -535,7 +535,7 @@
                             return apps;
                         })(),
                         homeworkPrompt: "Write one sentence for each of the expressions listed below. Each sentence should be about 7 words long.\n\n1. Walk down.\n\n2. Lucky.\n\n3. Through.\n\n4. Bigger than.\n\n5. Wonder.\n\n6. Greedy.",
-                        transcript: `The Dog and his Bone\n\nA dog is walking down the street, when he sees a bone in a trash can. “A bone! Yippee! How lucky for me!” he thinks. He grabs the bone, and happily runs home.\n\nHe runs past the train station and the school. He runs through the park. He runs onto a bridge. On the bridge, the dog looks down into the deep, still water below.\n\nThere, he sees another dog with a bone in its mouth. “Who is that dog?” he wonders. “What is he doing down there?” The dog stares at the other dog. The other dog stares back.\n\n“Where did that dog get such a BIG bone?” the dog wonders. “Why is his bone bigger than mine?” The dog growls at the other dog. The other dog growls too. “I want that big bone!” he thinks.\n\nThe greedy dog decides to steal the other dog's bone. He leaps off the bridge and into the water. Splash! But as soon as he hits the water, the other dog disappears. There was never any other dog. It was just his own reflection!\n\nThe water is very deep and the dog is surprised. “Woof woof woof! Help!” he barks. And when he barks, his bone drops from his mouth and sinks to the bottom of the water.\nThe dog swims to shore. He is wet and cold, and now he has no bone at all.\n\nMoral:\n\nBe happy with what you have. If you're greedy, you might lose everything.`,
+                        transcript: `The Dog and his Bone\n\nA dog is walking down the street, when he sees a bone in a trash can. “A bone! Yippee! How lucky for me!” he thinks. He grabs the bone, and happily runs home.\n\nHe runs past the train station and the school. He runs through the park. He runs onto a bridge. On the bridge, the dog looks down into the deep, still water below.\n\nThere, he sees another dog with a bone in its mouth. “Who is that dog?” he wonders. “What is he doing down there?” The dog stares at the other dog. The other dog stares back.\n\n“Where did that dog get such a BIG bone?” the dog wonders. “Why is his bone bigger than mine?” The dog growlows at the other dog. The other dog growls too. “I want that big bone!” he thinks.\n\nThe greedy dog decides to steal the other dog's bone. He leaps off the bridge and into the water. Splash! But as soon as he hits the water, the other dog disappears. There was never any other dog. It was just his own reflection!\n\nThe water is very deep and the dog is surprised. “Woof woof woof! Help!” he barks. And when he barks, his bone drops from his mouth and sinks to the bottom of the water.\nThe dog swims to shore. He is wet and cold, and now he has no bone at all.\n\nMoral:\n\nBe happy with what you have. If you're greedy, you might lose everything.`,
                         speakingExpressions: [
                             "There is … / There are …",
                             "Your turn / Say it",
@@ -1345,14 +1345,13 @@
             }
         };
 
-        // Dedicated helper to trigger animation toast and optionally navigate to URL
+        // Dedicated helper to trigger animation toast and navigate immediately to URL.
+        // NOTE: Executing window.open inside a setTimeout is blocked on mobile platforms.
+        // Opening synchronously on the user's gesture ensures universal cross-device compliance.
         window.launchApp = (appName, url) => {
             alertExercise(appName);
             if (url) {
-                // Give a 1-second delay for the launch animation toast to look majestic
-                setTimeout(() => {
-                    window.open(url, '_blank');
-                }, 1000);
+                window.open(url, '_blank');
             }
         };
 
